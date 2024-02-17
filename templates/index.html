@@ -1,10 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-</body>
-</html>
+{% block title %}
+Все Фильмы
+{% endblock %}
+
+{% block content %}
+<br>
+<div class="container mt-5">
+  <h1 class="text-center">Все Фильмы</h1><br>
+    {% if films  %}
+    <table class="table">
+        <thead>
+            <th>Название</th>
+            <th>Режиссер</th>
+            <th>Жанр</th>
+            <th>Дата релиза</th>
+            <th>Дата премьеры</th>
+            <th>Подробнее о фильме</th>
+        </thead>
+        <tbody>
+            {% for film in films  %}
+                <tr>
+                    <td>{{ film.title }}</td>
+                    <td>{{ film.director }}</td>
+                    <td>{{ film.genre }}</td>
+                    <td>{{ film.release_date }}</td>
+                    <td>{{ film.premiere_date }}</td>
+                    <td><a href="/films/{{ film.id }}" class="btn btn-warning">Подробнее</a></td>
+                </tr>                      
+            {% endfor %}
+        </tbody>
+    </table>
+   {% else %}
+        <p>Добро пожаловать!!!</p>
+   {% endif  %}
+</div>
+{% endblock %}

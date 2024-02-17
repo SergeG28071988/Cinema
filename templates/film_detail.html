@@ -1,10 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-</body>
-</html>
+{% block title %}
+{{ film.title }}
+{% endblock %}
+
+{% block content %}
+<br>
+<div class="container mt-5">
+  <h1 class="text-center">{{ film.title }}</h1><br>
+  <div class="alert alert-info">
+        <h1> Режиссер(ы): {{ film.director }}</h1>
+        <h1> Жанр: {{ film.genre }}</h1>
+        <h1> Дата релиза: {{ film.release_date }}</h1>
+        <h1>Дата премьеры: {{ film.premiere_date }}</h1>
+    <a href="/films/{{ film.id }}/delete" class="btn btn-danger">Удалить</a>
+    <a href="/films/{{ film.id }}/update" class="btn btn-success">Изменить</a>
+  </div>
+</div>
+{% endblock content %}
