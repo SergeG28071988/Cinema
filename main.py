@@ -1,9 +1,8 @@
-import os
 from flask import Flask, render_template, redirect, url_for, flash
 from flask_bootstrap import Bootstrap
 from flask_sqlalchemy import SQLAlchemy
+
 from forms import FilmForm
-from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 bootstrap = Bootstrap(app)
